@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>365--</title>
+    <style media="screen">
+      canvas {
+        background: #fff;
+        position: fixed;
+        top: 25%;
+        left: 0;
+      }
+      body {
+        background: #000;
+        font-family: monospace;
+        margin: 0;
+        display: flex;
+        flex-direction: vertical;
+      }
+      p {
+        color: #fff;
+        margin: 2rem;
+      }
+    </style>
+    <script src="https://use.fontawesome.com/c9a5425a27.js"></script>
+  </head>
+  <body>
+    <p id="title"></p>
+    <p id="score"></p>
+    <!-- <p id="previous"><<</p> -->
+    <p id="date"></p>
+    <!-- <p id="next">>></p> -->
+    <canvas id="canvas"></canvas>
+
+  <script type="text/javascript">
+    const script = document.createElement('script');
+    script.src = 'scripts/20200422.js';
+    document.body.appendChild(script);
+  </script>
+  </body>
+</html>
