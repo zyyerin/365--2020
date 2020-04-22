@@ -23,7 +23,7 @@ let symbols = [
   '\uf130'
 ];
 
-let senario = 1;
+let senario = 0;
 
 let margin = 20;
 let xstep = 40;
@@ -37,11 +37,40 @@ function init() {
   for (let x=margin; x<w; x+=xstep) {
     for (let y=margin*2.5; y<h; y+=ystep) {
       let index;
-      if (senario == 1) {
-        index = 0;
-      } else {
-        index = Math.floor(Math.random() * symbols.length);
+      switch (senario) {
+        case 0:
+          symbols = ['\uf1c0']; break;
+        case 1:
+          symbols = [
+          '\uf1c0',
+          '\uf1c0',
+          '\uf03d',
+          '\uf075',
+          '\uf1ab',
+          '\uf025',
+          '\uf036',
+          '\uf017',
+          '\uf124',
+          '\uf130']; break;
+        case 20:
+          symbols = [
+          '\uf10b', //mobile
+          '\uf0c2', //cloud
+          '\uf085', //cogs
+          '\uf21e', //heartbeat
+          '\uf0eb', //light
+          '\uf1b9', //car
+          '\uf017', //clock
+          '\uf130', //mic
+          '\uf1ea', //newspaper
+          '\uf030', //camera
+          '\uf03d', //video
+          // '\uf54e', //store
+          '\uf0d1', //truck
+          '\uf109' //laptop
+          ]; break;
       }
+      index = Math.floor(Math.random() * symbols.length);
       icons.push(new Icon(x, y, iconSize, index));
     }
   }
@@ -96,6 +125,8 @@ function update() {
   for (let i=0; i<icons.length; i++) {
     icons[i].update(senario);
   }
+
+  caption();
 }
 
 // interaction
@@ -113,3 +144,22 @@ window.addEventListener('wheel',
     senario += 1;
     init();
 }, false);
+
+window.addEventListener('resize',
+  function(){
+    canvas.width = innerWidth;
+    canvas.height = innerHeight/2;
+    w = canvas.width;
+    h = canvas.height;
+    init();
+  }
+)
+
+// title & stuff
+
+function caption() {
+  // captions
+  document.getElementById('title').innerHTML = 'using icons, mouse move, scroll';
+  document.getElementById('date').innerHTML = '2020-04-23';
+  document.getElementById('note').innerHTML = 'senario: ' + senario;
+}

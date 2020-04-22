@@ -62,7 +62,7 @@ function animate() {
   // captions
   document.getElementById('title').innerHTML = 'circles travel and grow along the mouse';
   document.getElementById('date').innerHTML = '2020-04-22';
-  document.getElementById('score').innerHTML = xHitCount + yHitCount;
+  document.getElementById('note').innerHTML = xHitCount + yHitCount;
 }
 
 // objects

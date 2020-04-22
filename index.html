@@ -26,8 +26,8 @@
   </head>
   <body>
     <p id="title"></p>
-    <p id="score"></p>
-    <!-- <p id="previous"><<</p> -->
+    <p id="note"></p>
+    <p id="previous"></p>
     <p id="date"></p>
     <!-- <p id="next">>></p> -->
     <canvas id="canvas"></canvas>
@@ -35,17 +35,22 @@
   <script type="text/javascript">
   // load the script for today
     const script = document.createElement('script');
-    const today = new Date();
-    const YYYY = 1900 + parseInt(today.getYear());
-    const MM = ("0" + (parseInt(today.getMonth(), 10) + 1)).slice(-2);
-    const DD = ("0" + today.getDate()).slice(-2);
-    let currentScript = YYYY + MM + DD;
+    let today = new Date();
+
+    function getFileName(d) {
+      let YYYY = 1900 + parseInt(d.getYear());
+      let MM = ("0" + (parseInt(d.getMonth(), 10) + 1)).slice(-2);
+      let DD = ("0" + d.getDate()).slice(-2);
+      return YYYY + MM + DD;
+    }
+    let currentScript = getFileName(today);
 
     // for development
-    currentScript = '20200423';
+    // currentScript = '20200423';
 
     script.src = 'scripts/'+ currentScript + '.js';
     document.body.appendChild(script);
+
   </script>
   </body>
 </html>

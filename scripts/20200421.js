@@ -41,7 +41,7 @@ function animate() {
   // captions
   document.getElementById('title').innerHTML = 'an array of '+numberOfCircles+' moving circles';
   document.getElementById('date').innerHTML = '2020-04-21';
-  document.getElementById('score').innerHTML = xHitCount + yHitCount;
+  document.getElementById('note').innerHTML = xHitCount + yHitCount;
 }
 
 // objects
