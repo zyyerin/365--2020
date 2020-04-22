@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>365--</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/js/solid.min.js"></script>
     <style media="screen">
       canvas {
         background: #fff;
@@ -22,7 +23,6 @@
         margin: 2rem;
       }
     </style>
-    <script src="https://use.fontawesome.com/c9a5425a27.js"></script>
   </head>
   <body>
     <p id="title"></p>
@@ -33,8 +33,18 @@
     <canvas id="canvas"></canvas>
 
   <script type="text/javascript">
+  // load the script for today
     const script = document.createElement('script');
-    script.src = 'scripts/20200422.js';
+    const today = new Date();
+    const YYYY = 1900 + parseInt(today.getYear());
+    const MM = ("0" + (parseInt(today.getMonth(), 10) + 1)).slice(-2);
+    const DD = ("0" + today.getDate()).slice(-2);
+    let currentScript = YYYY + MM + DD;
+
+    // for development
+    currentScript = '20200423';
+
+    script.src = 'scripts/'+ currentScript + '.js';
     document.body.appendChild(script);
   </script>
   </body>
